@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const service = axios.create({
   // .env.development 和 .env.productiont
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  baseURL: '/dev-api', // url = base url + request url
   timeout: 10000 // request timeout
 })
 
