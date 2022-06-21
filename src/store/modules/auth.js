@@ -45,14 +45,13 @@ const actions = {
 
   // 登录操作  
   UserLogin ({ commit }, userData) {
-    console.log('UserLogin', userData)
     const { username, password } = userData
 
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         // 获取响应值 
         const { code, data } = response
-        if(code === 20000) {
+        if(code === "200000") {
             // 状态赋值 
             commit('SET_USER_STATE', data)
         }
@@ -94,6 +93,7 @@ const actions = {
       // 发送请求
       refreshToken(state.refreshToken).then(response => {
         console.log('获取到的新认证令牌', response.data)
+        debugger
         // 更新用户状态新数据
         commit('SET_USER_STATE', response.data)
         resolve() // 正常钩子

@@ -124,9 +124,9 @@ export default {
 
         this.$store.dispatch('UserLogin', this.loginData).then((response) => { 
           const { code, message } = response
-
-          if(code === 20000) {
+          if(code === "200000") {
               // 跳转回来源页面
+              console.log(this.redirectURL)
               window.location.href = this.redirectURL
           }else {
               this.loginMessage = message
